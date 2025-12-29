@@ -30,6 +30,15 @@ services:
     depends_on:
       - mongo
       - rabbitmq
+  
+  notification-service:
+    build: ./notification-service
+    container_name: notification-service
+    ports:
+      - "3003:3003"
+    depends_on:
+      - mongo
+      - rabbitmq
 
 volumes:
   mongo_data:
